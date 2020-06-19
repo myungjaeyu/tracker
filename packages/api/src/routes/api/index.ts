@@ -1,9 +1,9 @@
 import { Router } from 'express'
 
-import github from './github'
+import tracker from './tracker'
 
 const api = Router()
 
-api.use('/github', github)
+api.use('/tracker', tracker)
 
 export default api

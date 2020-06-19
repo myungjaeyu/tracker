@@ -1,7 +1,6 @@
 import path from 'path'
 import express, { Application, Response, Request } from 'express'
 
-import auth from '@routes/auth'
 import api from '@routes/api'
 
 const devMode = process.env.NODE_ENV !== 'production'
@@ -11,7 +10,6 @@ const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/auth', auth)
 app.use('/api', api)
 
 if (!devMode) {
