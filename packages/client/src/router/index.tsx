@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {
-    BrowserRouter as DefaultRouter,
+    HashRouter as DefaultRouter,
     Route,
     Switch
 } from 'react-router-dom'
@@ -14,7 +14,7 @@ const Router = ({}: IRouterProps) => {
     return (
         <DefaultRouter>
             <Switch>
-                <Route path='/' exact component={Home} />
+                <Route path='/' component={Home} />
             </Switch>
         </DefaultRouter>
     )
