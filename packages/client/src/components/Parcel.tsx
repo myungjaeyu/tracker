@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 import { getTrackingInfo } from '@services/tracker'
 
+import { Header, ParcelInfo, ParcelStatus, ParcelTable } from 'design-system'
+
+import _status from '@commons/parcelStatus.json'
+
 interface ILayoutProps {
     match: any
 }
@@ -30,7 +34,7 @@ const Parcel = ({ match }: ILayoutProps) => {
             setLevel(data.level)
             setTrackingDetails(
                 data.trackingDetails.map(({ timeString, where, kind }) => ({
-                    timeString,
+                    datetime: timeString,
                     where,
                     kind
                 }))
@@ -43,25 +47,24 @@ const Parcel = ({ match }: ILayoutProps) => {
     return (
         <div>
 
-            <h1>조회 출력</h1>
+            <Header title='택배정보' />
 
-            <h5>{invoiceNo}</h5>
+            <ParcelInfo 
+                invoice_label='운송장번호'
+                invoice_text={invoiceNo}
+                to_label='받는 사람'
+                to_text={receiverName}
+                from_label='보낸 사람'
+                from_text={senderName}
+                address_label='수령 주소'
+                address_text={receiverAddr}
+            />
 
-            <h5>{receiverName}</h5>
+            <Header title='배송상세' />
 
-            <h5>{senderName}</h5>
+            <ParcelStatus level={level} status={_status}/>
 
-            <h5>{receiverAddr}</h5>
-
-            <h5>{level}</h5>
-
-            {trackingDetails.map((detail, i) => 
-                <p key={i}>
-                    { detail.timeString} | 
-                    { detail.where} | 
-                    { detail.kind} 
-                </p>
-            )}
+            <ParcelTable heads={['시간', '현재 위치', '배송 상태']} data={trackingDetails}/>
 
         </div>
     )
