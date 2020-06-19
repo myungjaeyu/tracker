@@ -2,11 +2,16 @@ import React from 'react'
 
 import { Header, TrackingForm, TrackingLogs, TrackingLog } from 'design-system'
 
+import { ILogsState } from '@models/ILogsState'
+import LogsContainer from '@containers/logs'
+
 interface ILayoutProps {
     onTracking: any
 }
 
 const Tracking = ({ onTracking }: ILayoutProps) => {
+
+    const { logs }: ILogsState = LogsContainer.useContainer()
 
     return (
         <div>
@@ -27,8 +32,7 @@ const Tracking = ({ onTracking }: ILayoutProps) => {
 
             <TrackingLogs heads={['운송장번호', '받는 사람']}>
 
-                <TrackingLog code='04' invoice='631632446432' receiver='조은*' onTracking={ onTracking } />
-                <TrackingLog code='05' invoice='508812361761' receiver='이준*' onTracking={ onTracking } />
+                { logs.map((log, i) => <TrackingLog key={i} code={log.code} invoice={log.invoice} receiver={log.receiver} onTracking={ onTracking } />) }
 
             </TrackingLogs>
 
