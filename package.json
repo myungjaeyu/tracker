@@ -7,7 +7,7 @@
   "scripts": {
     "boot": "lerna bootstrap",
     "build": "rimraf dist && lerna run build",
-    "start": "lerna run start",
+    "start": "lerna run start --stream",
     "lint": "lerna run lint",
     "serve": "cross-env NODE_ENV=production node dist/index",
     "serve-ui": "npx http-server -s -p 9009 -o storybook-static",
