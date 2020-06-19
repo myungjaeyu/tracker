@@ -44,7 +44,7 @@ const StyledParcelTable = styled.table`
 
 interface ITableData {
     datetime: string,
-    telno: string,
+    where: string,
     kind: string
 
 }
@@ -71,7 +71,7 @@ const ParcelTable = ({ heads, data }: IParcelTableProps) => (
             {data.map((e, i) => 
                 <tr key={i}>
                     <td>{e.datetime}</td>
-                    <td>{e.telno}</td>
+                    <td>{e.where}</td>
                     <td>{e.kind}</td>
                 </tr>
             )}
