@@ -24,7 +24,7 @@ const StyledParcel = ({ companies, placeholder, submitText, onSubmit }: IStyledP
     const { register, handleSubmit } = useForm()
 
     return (
-        <StyledTrackingForm className='row' onSubmit={handleSubmit(onSubmit)}>
+        <StyledTrackingForm className='row m-0' onSubmit={handleSubmit(onSubmit)}>
 
             <select className='col-4 form-control' name='code' ref={register({ required: true })}>
 

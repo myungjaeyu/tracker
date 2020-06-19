@@ -20,7 +20,7 @@ interface IHeaderProps {
 }
 
 const Header = ({ title }: IHeaderProps) => (
-    <StyledHeader>
+    <StyledHeader className='mt-3 mb-3'>
 
         <h1>{ title }</h1>
 

@@ -18,7 +18,7 @@ interface INotParcelProps {
 }
 
 const NotParcel = ({ text }: INotParcelProps) => (
-    <StyledNotParcel className='d-flex flex-wrap justify-content-center align-content-center'>
+    <StyledNotParcel className='mt-3 d-flex flex-wrap justify-content-center align-content-center'>
 
         <h4>{ text }</h4>
 

@@ -14,7 +14,6 @@ const ParcelLine = styled.div`
     width: 100%;
     height: 1px;
     top: 25px;
-    left: 6%;
     z-index: -1;
 `
 
