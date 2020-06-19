@@ -7,6 +7,7 @@ import TodosContainer from '@containers/todos'
 
 import Layout from '@components/Layout'
 import Parcel from '@components/Parcel'
+import Tracking from '@components/Tracking'
 
 import { NotParcel } from 'design-system'
 
@@ -19,9 +20,9 @@ const Home = ({match, history }: IHomeProps) => {
 
     const { todos, add, remove }: ITodosState = TodosContainer.useContainer()
 
-    const onTracking = (company, invoice) => {
+    const onTracking = (code, invoice) => {
 
-        history.push(`/${company}/${invoice}`)
+        history.push(`/${code}/${invoice}`)
 
     }
 
@@ -42,11 +43,7 @@ const Home = ({match, history }: IHomeProps) => {
 
                         <section className='col-md-6'>
 
-                            <h1>조회폼</h1>
-
-                            <button onClick={() => onTracking('04', '630779226140')}>
-                                조회
-                            </button>
+                            <Tracking onTracking={data => onTracking(data.code, data.invoice)}/>
 
                         </section>
 
