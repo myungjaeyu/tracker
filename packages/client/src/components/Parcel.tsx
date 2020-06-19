@@ -6,13 +6,18 @@ import { Header, ParcelInfo, ParcelStatus, ParcelTable } from 'design-system'
 
 import _status from '@commons/parcelStatus.json'
 
+import { ILogsState } from '@models/ILogsState'
+import LogsContainer from '@containers/logs'
+
 interface ILayoutProps {
     match: any
 }
 
 const Parcel = ({ match }: ILayoutProps) => {
 
-    const { company, invoice } = match.params
+    const { code, invoice } = match.params
+
+    const { add }: ILogsState = LogsContainer.useContainer()
 
     const [url, setUrl] = useState('/')
     const [invoiceNo, setInvoiceNo] = useState('')
@@ -24,7 +29,7 @@ const Parcel = ({ match }: ILayoutProps) => {
 
     useEffect(() => {
 
-        match.url !== url && getTrackingInfo(company, invoice).then((data: any) => {
+        match.url !== url && getTrackingInfo(code, invoice).then((data: any) => {
 
             setUrl(match.url)
             setInvoiceNo(data.invoiceNo)
@@ -39,6 +44,8 @@ const Parcel = ({ match }: ILayoutProps) => {
                     kind
                 }))
             )
+
+            add(code, invoice, data.receiverName)
 
         })
 
