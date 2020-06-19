@@ -26,7 +26,7 @@ const StyledParcel = ({ companies, placeholder, submitText, onSubmit }: IStyledP
     return (
         <StyledTrackingForm className='row' onSubmit={handleSubmit(onSubmit)}>
 
-            <select className='col-4 form-control' name='company' ref={register({ required: true })}>
+            <select className='col-4 form-control' name='code' ref={register({ required: true })}>
 
                 {companies.map((company, i) => 
                     <option key={i} value={company.code}>

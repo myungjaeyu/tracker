@@ -18,13 +18,14 @@ const StyledTrackingLog = styled.tr`
 `
 
 interface ITrackingLogProps {
+    code: string,
     invoice: string,
     receiver: string,
     onTracking: any
 }
 
-const TrackingLog = ({ invoice, receiver, onTracking }: ITrackingLogProps) => (
-    <StyledTrackingLog onClick={() => onTracking({ invoice, receiver })}>
+const TrackingLog = ({ code, invoice, receiver, onTracking }: ITrackingLogProps) => (
+    <StyledTrackingLog onClick={() => onTracking({ code, invoice, receiver })}>
 
         <td>{invoice}</td>
 
