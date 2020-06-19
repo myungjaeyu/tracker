@@ -44,7 +44,7 @@ const Home = ({match, history }: IHomeProps) => {
 
                             <h1>조회폼</h1>
 
-                            <button onClick={() => onTracking(23, 'aadfadf')}>
+                            <button onClick={() => onTracking('04', '630779226140')}>
                                 조회
                             </button>
 
