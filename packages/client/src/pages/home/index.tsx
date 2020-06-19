@@ -1,10 +1,6 @@
 import React, { Fragment } from 'react'
 import { Route } from 'react-router-dom'
 
-import ITodosState from '@models/ITodosState'
-
-import TodosContainer from '@containers/todos'
-
 import Layout from '@components/Layout'
 import Parcel from '@components/Parcel'
 import Tracking from '@components/Tracking'
@@ -17,8 +13,6 @@ interface IHomeProps {
 }
 
 const Home = ({match, history }: IHomeProps) => {
-
-    const { todos, add, remove }: ITodosState = TodosContainer.useContainer()
 
     const onTracking = (code, invoice) => {
 
@@ -37,7 +31,7 @@ const Home = ({match, history }: IHomeProps) => {
                         <section className='col-md-6'>
 
                             <Route exact path={match.path} render={() => <NotParcel text='조회 내역이 없습니다.' />} />
-                            <Route path={`${match.path}:company/:invoice`} component={Parcel} />
+                            <Route path={`${match.path}:code/:invoice`} component={Parcel} />
 
                         </section>
 

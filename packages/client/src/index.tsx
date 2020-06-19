@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import addContainerDeps from '@commons/addContainerDeps'
 
-import TodosContainer from '@containers/todos'
+import LogsContainer from '@containers/logs'
 
 import Router from './router'
 
@@ -12,7 +12,7 @@ import '@assets/styles/index.less'
 
 import '@commons/i18n'
 
-const Container = addContainerDeps(TodosContainer)
+const Container = addContainerDeps(LogsContainer)
 
 ReactDOM.render(
     <Container.Provider>
