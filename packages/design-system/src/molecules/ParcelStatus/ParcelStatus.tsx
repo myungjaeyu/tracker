@@ -65,8 +65,8 @@ const ParcelStatus = ({ level, status }: IParcelStatusProps) => (
 
          <div className='d-flex justify-content-between'>
 
-            {status && status.map((stat) => 
-                <ParcelIcon active={level === stat.no}>
+            {status && status.map((stat, i) => 
+                <ParcelIcon key={i} active={level === stat.no}>
                     <div>
                         <img src={stat.icons[+(level === stat.no)]} alt={stat.label} />
                     </div>

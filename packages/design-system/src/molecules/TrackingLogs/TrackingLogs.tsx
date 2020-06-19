@@ -36,7 +36,7 @@ const TrackingLogs = ({ children, heads }: ITrackingLogsProps) => (
         <thead>
 
             <tr>
-                { heads.map((head, i) => <th>{head}</th>) }
+                { heads.map((head, i) => <th key={i}>{head}</th>) }
             </tr>
 
         </thead>
